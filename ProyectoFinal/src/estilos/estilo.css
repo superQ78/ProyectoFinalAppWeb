@@ -1,0 +1,35 @@
+/* Fondo del body */
+body {
+    background: linear-gradient(to bottom, #0052D4, #000000); /* Degradado azul */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta del formulario */
+.card {
+    width: 600px;
+    background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(to bottom, #003973, #E5E5BE); /* Fondo dentro de la tarjeta */
+    background: linear-gradient(to bottom, #0052D4, #003973); /* Azul fuerte degradado */
+    display:block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Encabezado del formulario */
+.card-header {
+    background: transparent;
+    border-bottom: none;
+    text-align: center;
+}
+
+.card-header h3 {
+    color: #fff;
+    font-weight: bold;
+}

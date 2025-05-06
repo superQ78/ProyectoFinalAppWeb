@@ -57,3 +57,35 @@ body {
     border-radius: 10px;
     color: #fff;
 }
+
+/* Botón principal */
+.btn-primary {
+    background-color: #6FB1FC;
+    width: 60%;
+    margin: 0 auto;
+    display:block;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #ff8c00;
+}
+
+/* Botón cancelar */
+.btn-secondary {
+    background-color: #0052D4; /* Azul fuerte */
+    width: 60%;
+    margin: 0 auto;
+    display:block;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.btn-danger:hover {
+    background-color: #003366;
+}

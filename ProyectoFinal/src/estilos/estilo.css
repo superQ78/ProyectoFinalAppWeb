@@ -33,3 +33,27 @@ body {
     color: #fff;
     font-weight: bold;
 }
+
+/* Inputs */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo transparente   */
+    width: 80%;
+    border: none;
+    margin: 0 auto; /* Centrar el input */
+    display: block;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #e0e0e0;
+}
+
+/* Selects */
+.form-select {
+    background-color: #6FB1FC;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}

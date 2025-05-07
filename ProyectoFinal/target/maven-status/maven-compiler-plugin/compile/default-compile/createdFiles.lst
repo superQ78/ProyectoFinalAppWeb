@@ -1,2 +1,4 @@
 com\mycompany\proyectofinal\resources\JakartaEE8Resource.class
+objetos\negocio\Usuario.class
 com\mycompany\proyectofinal\JakartaRestConfiguration.class
+objetos\negocio\ControlUsuarios.class

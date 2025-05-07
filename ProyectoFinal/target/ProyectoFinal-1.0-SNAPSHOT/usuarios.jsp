@@ -4,6 +4,7 @@
 <%@page import="objetos.negocio.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+
     String accion = request.getParameter("accion");
 
     Usuario usuarioEditar = null;
@@ -55,7 +56,8 @@
         <meta charset="UTF-8">
         <title>Gestión de Usuarios</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="estiloUsuario.css">
+        <link rel="stylesheet" href="/ProyectoFinal/src/estilos/estilo.css">
+
     </head>
     <body class="bg-light">
         <div class="container py-4">

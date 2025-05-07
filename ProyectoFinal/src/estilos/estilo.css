@@ -89,3 +89,19 @@ body {
 .btn-danger:hover {
     background-color: #003366;
 }
+
+/* Footer */
+footer {
+    background: transparent;
+    color: white;
+}
+
+/**/
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #bbdefb; /* Un azul clarito cuando pasas el mouse */
+}

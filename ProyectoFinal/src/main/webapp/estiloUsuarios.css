@@ -3,7 +3,255 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : 13 may 2025, 12:42:13
-    Author     : cesar
+    Created on : 11 may 2025, 12:42:13
+    Author     : equipo
 */
+/* 
+    Created on : 11 may 2025, 15:25:47
+    Author     : equipo
+*/
+/* Estilos generales del body (cuerpo de la página) */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #031639; /* Fallback background color */
+    background-image: url('Images/collage 1.jpg'); /* Use your collage image */
+    background-size: cover; /* Adjust to cover the entire background */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Optional: Keep the background fixed during scroll */
+    color: #e0e0e0; /* Adjust text color for readability against the background */
+}
+
+/* ... other styles for your page ... */
+
+.header-bar .btn-outline-light {
+    background-color: #7C0054; /* Fondo morado oscuro */
+    color: white; /* Letras blancas */
+    border: 2px solid white; /* Borde blanco */
+    padding: 0.8rem 1.5rem; /* Aumenta el padding para mejor visibilidad */
+    border-radius: 10px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negrita */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+}
+
+.header-bar .btn-outline-light:hover {
+    background-color: #bb86fc; /* Un tono de morado más claro al pasar el ratón */
+    color: #031639; /* Texto oscuro al pasar el ratón */
+    border-color: #031639;
+}
+
+h1 {
+    color: white; /* Letras blancas para el título */
+    background-color: rgba(124, 0, 84, 0.7); /* Fondo morado oscuro con transparencia */
+    padding: 1rem; /* Espacio alrededor del título */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 2px solid white; /* Borde blanco */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    display: inline-block; /* Para que el fondo se ajuste al contenido */
+    margin-bottom: 30px; /* Mantén el margen inferior */
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #bb86fc; /* Color акцент */
+    border-bottom: 2px solid #bb86fc;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn-outline-light {
+    background-color: transparent;
+    color: #bb86fc;
+    border: 1px solid #bb86fc;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-outline-light:hover {
+    background-color: #bb86fc;
+    color: #031639;
+}
+
+/* Card (tarjeta) para formularios y tablas */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #031d4b; /* Fondo oscuro para la tarjeta */
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+    overflow: hidden; /* Para contener las esquinas redondeadas del header */
+}
+
+.card-header {
+    background: linear-gradient(0deg, #3F006B, #7C0054); /* Gradiente del color акцент */
+    color: white;
+    font-weight: bold;
+    padding: 1.2rem;
+    font-size: 1.3rem;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #bb86fc;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #031639;
+    color: #e0e0e0;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    width: calc(100% - 1.6rem); /* Ajuste para el padding */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #bb86fc;
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.5);
+    outline: none;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease-in-out;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #7C0054; /* Color акцент */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #58053d;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.btn-warning {
+    background-color: #f59e0b;
+    color: #222;
+}
+
+.btn-warning:hover {
+    background-color: #d97706;
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+    transform: scale(1.05);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #031639; /* Fondo oscuro para la tabla */
+    color: #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.table th, .table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #555;
+}
+
+.table th {
+    background-color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #031d4b; /* Fondo oscuro ligeramente más claro para las filas pares */
+}
+
+.d-flex.justify-content-center.gap-2 > * {
+    margin-right: 0.5rem;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .form-control {
+        width: calc(100% - 1rem);
+        padding: 0.6rem;
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .table th, .table td {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
 

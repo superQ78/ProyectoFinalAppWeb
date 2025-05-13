@@ -4,6 +4,8 @@
     Author     : equipo
 */
 /* estiloVerPelicula.css */
+
+/* estiloVerPelicula.css */
 body {
     margin: 0;
     padding: 20px; /* Añadido padding general al body */
@@ -135,19 +137,65 @@ h1 {
     margin-left: 5px; /* Espacio para la estrella */
 }
 
-.btn-eliminar {
-    background-color: #dc3545; /* Color rojo para el botón de eliminar */
-    color: white;
-    padding: 10px 15px;
+
+/* Contenedor principal */
+.botones-accion {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: flex-end;
+}
+
+/* Estilo base para ambos botones */
+.form-accion {
+    display: inline-block;
+    margin: 0;
+}
+
+.btn-editar, .btn-eliminar {
+    padding: 8px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    align-self: flex-end; /* Alinea el botón de eliminar a la derecha */
-    margin-top: 15px; /* Espacio superior */
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* Botón Editar */
+.btn-editar {
+    background-color: #4e73df; /* Azul profesional */
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #3a5ccc;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+/* Botón Eliminar */
+.btn-eliminar {
+    background-color: #e74a3b; /* Rojo intenso */
+    color: white;
 }
 
 .btn-eliminar:hover {
-    background-color: #c82333;
+    background-color: #d62c1a;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+/* Efecto al hacer clic */
+.btn-editar:active, .btn-eliminar:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Ajuste para emojis */
+.btn-editar::before, .btn-eliminar::before {
+    margin-right: 6px;
+    font-size: 1.1em;
+    vertical-align: middle;
 }

@@ -12,6 +12,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import static com.mongodb.client.model.Filters.eq;
+import com.mongodb.client.result.UpdateResult;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -19,7 +20,7 @@ import org.bson.types.ObjectId;
 
 /**
  *
- * @author equipo
+ * @author cesar
  */
 public class PeliculaDAO {
 
@@ -112,16 +113,49 @@ public class PeliculaDAO {
         peliculas.deleteOne(eq("_id", id));
     }
 
-    public static void actualizar(PeliculaDTO pelicula) {
-        Document doc = new Document("usuarioId", pelicula.getUsuarioId())
-                .append("titulo", pelicula.getTitulo())
-                .append("descripcion", pelicula.getDescripcion())
-                .append("calificacion", pelicula.getCalificacion())
-                .append("favorita", pelicula.isFavorita())
-                .append("imagen", pelicula.getImagen())
-                .append("genero", pelicula.getGenero());
-        peliculas.updateOne(eq("_id", pelicula.getId()), new Document("$set", doc));
+//// Método actualizar (optimizado)
+//    public static boolean actualizar(PeliculaDTO pelicula) {
+//        try {
+//            Document updateDoc = new Document("$set", new Document()
+//                .append("titulo", pelicula.getTitulo())
+//                .append("descripcion", pelicula.getDescripcion())
+//                .append("calificacion", pelicula.getCalificacion())
+//                .append("favorita", pelicula.isFavorita())
+//                .append("imagen", pelicula.getImagen())
+//                .append("comentario", pelicula.getComentario())
+//                .append("genero", pelicula.getGenero()));
+//
+//            UpdateResult result = peliculas.updateOne(
+//                eq("_id", pelicula.getId()),
+//                updateDoc
+//            );
+//            return result.getModifiedCount() > 0;
+//        } catch (Exception e) {
+//            System.err.println("Error al actualizar película: " + e.getMessage());
+//            return false;
+//        }
+//    }
+public static boolean actualizarPelicula(PeliculaDTO pelicula) {
+    try {
+        Document updateDoc = new Document("$set", new Document()
+            .append("titulo", pelicula.getTitulo())
+            .append("descripcion", pelicula.getDescripcion())
+            .append("calificacion", pelicula.getCalificacion())
+            .append("favorita", pelicula.isFavorita())
+            .append("imagen", pelicula.getImagen())
+            .append("comentario", pelicula.getComentario())
+            .append("genero", pelicula.getGenero()));
+
+        UpdateResult result = peliculas.updateOne(
+            Filters.eq("_id", pelicula.getId()),
+            updateDoc
+        );
+        return result.getModifiedCount() > 0;
+    } catch (Exception e) {
+        System.err.println("Error al actualizar película: " + e.getMessage());
+        return false;
     }
+}
 
     public static PeliculaDTO obtenerPorId(ObjectId id) {
         Document doc = peliculas.find(eq("_id", id)).first();
@@ -184,5 +218,15 @@ public class PeliculaDAO {
                 new Document("$set", new Document("favorita", true))
         );
     }
-
+    
+     // Método para verificar si una película pertenece a un usuario
+    public static boolean perteneceAUsuario(ObjectId peliculaId, String usuarioId) {
+        Document doc = peliculas.find(
+            Filters.and(
+                Filters.eq("_id", peliculaId),
+                Filters.eq("usuarioId", usuarioId)
+            )
+        ).first();
+        return doc != null;
+    }
 }

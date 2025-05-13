@@ -64,14 +64,23 @@
                     ⭐ <i class="<%= iconoFavorito%>"></i>
                 </button>
 
+                <div class="acciones-pelicula">
+                    <!-- Botón Editar -->
+                    <!-- Botón Editar -->
+                    <a href="EditarPeliculaServlet?peliculaId=<%= pelicula.getId()%>" class="btn-editar">
+                        ✏️ Editar
+                    </a>
 
-                <form action="EliminarPeliculaServlet" method="post" onsubmit="return confirm('¿Seguro que quieres eliminar esta película?');">
-                    <input type="hidden" name="peliculaId" value="<%= pelicula.getId()%>">
-                    <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
-                </form>
+                    <!-- Botón Eliminar -->
+                    <form action="EliminarPeliculaServlet" method="post" class="form-accion" 
+                          onsubmit="return confirm('¿Seguro que deseas eliminar esta película?');">
+                        <input type="hidden" name="peliculaId" value="<%= pelicula.getId()%>">
+                        <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
+                    </form>
+                </div>
+
+                <% } %>
+                <% }%>
             </div>
-            <% } %>
-            <% }%>
-        </div>
     </body>
 </html>

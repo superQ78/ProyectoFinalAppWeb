@@ -21,7 +21,7 @@ public class PeliculaBO {
     }
 
     public void actualizarPelicula(PeliculaDTO pelicula) {
-        PeliculaDAO.actualizar(pelicula);
+        PeliculaDAO.actualizarPelicula(pelicula);
     }
 
     public PeliculaDTO obtenerPorId(String id) {

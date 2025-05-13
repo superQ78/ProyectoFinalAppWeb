@@ -25,7 +25,7 @@
         <nav class="nav-bar">
             <ul>
                 <li>
-                    <a class="nav-link" href="ResgitrarPelicula.jsp">
+                    <a class="nav-link" href="ResgistrarPelicula.jsp">
                         Registrar Película
                     </a>
                 </li>

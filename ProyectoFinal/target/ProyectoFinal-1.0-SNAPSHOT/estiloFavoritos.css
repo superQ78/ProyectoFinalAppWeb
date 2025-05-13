@@ -1,0 +1,134 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11 may 2025, 16:11:29
+    Author     : equipo
+*/
+/* estiloFavoritos.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #031639;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #ffffff; /* Título blanco consistente */
+    text-align: center; /* Centrando el título */
+    margin-bottom: 30px; /* Más espacio debajo del título */
+    font-size: 2em; /* Tamaño más grande del título */
+}
+
+/* Estilos para el contenedor de los botones de navegación */
+.navegacion-favoritos {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Centra los botones de navegación horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.navegacion-favoritos button {
+    background-color: #B81333; /* Color principal de los botones */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.navegacion-favoritos button:hover {
+    background-color: #870d25; /* Oscurecer al pasar el mouse */
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas de película horizontalmente */
+    gap: 2rem;
+    padding: 20px; /* Añade un poco de espacio alrededor de las tarjetas */
+}
+
+.pelicula-card {
+    background-color: #031d4b;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative; /* Para posicionar el botón de favorito */
+    max-width: 400px; /* Establece un ancho máximo para la tarjeta (ajusta este valor si es necesario) */
+    margin-bottom: 20px; /* Mantiene el espacio inferior entre tarjetas */
+}
+
+.pelicula-card:hover {
+    transform: scale(1.05);
+}
+
+.pelicula-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    max-height: 200px; /* Ajustando la altura máxima de la imagen para mejor visualización */
+}
+
+.pelicula-card .info-pelicula {
+    padding: 15px;
+    color: #e0e0e0;
+}
+
+.pelicula-card .info-pelicula h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pelicula-card .info-pelicula p {
+    font-size: 0.9em;
+    color: #bdbdbd;
+    margin-bottom: 8px; /* Aumentando un poco el espacio inferior del párrafo */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    height: auto;
+}
+
+.pelicula-card .btn-favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: gold;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 10;
+}
+
+.pelicula-card .btn-favorito i.far {
+    color: #ccc;
+}
+.mensaje-error {
+    color: #ff4d4d;
+    background-color: #ffe0e0;
+    border: 1px solid #ffaaaa;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}

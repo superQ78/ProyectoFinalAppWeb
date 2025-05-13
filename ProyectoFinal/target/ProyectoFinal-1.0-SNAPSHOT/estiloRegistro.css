@@ -1,9 +1,144 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 13 may 2025, 12:42:39
-    Author     : cesar
-*/
 
+/* 
+    Created on : 11 may 2025, 14:52:28
+    Author     : equipo
+*/
+/* Estilo global del body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #031639; /* Fondo oscuro similar al principal */
+    background-image: url('Images/collage2.jpg');
+    margin: 0;
+    padding: 20px; /* Añademos un poco de padding al body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+/* Contenedor principal del formulario */
+.container {
+    max-width: 600px;
+    width: 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
+    background-color: #031d4b; /* Fondo similar a la tarjeta de login */
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Sombra similar a otros elementos */
+    margin: 20px; /* Reduce el margen superior e inferior */
+}
+
+/* Encabezado de la tarjeta */
+.card-header {
+    background: linear-gradient(0deg, #031d4b, #B81333); /* Gradiente similar al header principal */
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    padding: 30px;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 30px); /* Ajustamos el ancho para el padding */
+    padding: 12px 15px;
+    border: 1px solid #555; /* Borde sutil */
+    border-radius: 8px;
+    background-color: #031639; /* Fondo oscuro para los inputs */
+    color: #e0e0e0; /* Texto claro */
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none; /* Elimina el outline al enfocar */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #B81333; 
+    box-shadow: 0 0 8px rgb(170, 75, 94);;
+}
+
+/* Estilo para el botón de registrar */
+button.btn-primary {
+    background-color: #B81333; /* Rosa oscuro del header */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button.btn-primary:hover {
+    background-color: #8d0a24;;
+    transform: scale(1.02);
+}
+
+/* Estilo para el botón de cancelar */
+a.btn-secondary {
+    background-color: #333; /* Gris oscuro */
+    color: #e0e0e0;
+    display: block;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+a.btn-secondary:hover {
+    background-color: #555;
+    transform: scale(1.02);
+}
+
+/* Estilos para los mensajes de alerta */
+.alert {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: rgba(187, 134, 252, 0.1); /* Verde claro con transparencia */
+    color: #bb86fc;
+    border: 1px solid #bb86fc;
+}
+
+.alert-danger {
+    background-color: rgba(255, 0, 0, 0.1); /* Rojo claro con transparencia */
+    color: #dc3838;
+    border: 1px solid #dc3838;
+}
+
+/* Estilos para el texto centrado */
+.text-center {
+    color: #ffffff ;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.text-center a {
+    color: #B81333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color: #8d0a24;
+    text-decoration: underline;
+}

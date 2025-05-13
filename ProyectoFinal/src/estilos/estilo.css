@@ -1,0 +1,107 @@
+/* Fondo del body */
+body {
+    background: linear-gradient(to bottom, #0052D4, #000000); /* Degradado azul */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta del formulario */
+.card {
+    width: 600px;
+    background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(to bottom, #003973, #E5E5BE); /* Fondo dentro de la tarjeta */
+    background: linear-gradient(to bottom, #0052D4, #003973); /* Azul fuerte degradado */
+    display:block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Encabezado del formulario */
+.card-header {
+    background: transparent;
+    border-bottom: none;
+    text-align: center;
+}
+
+.card-header h3 {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Inputs */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo transparente   */
+    width: 80%;
+    border: none;
+    margin: 0 auto; /* Centrar el input */
+    display: block;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #e0e0e0;
+}
+
+/* Selects */
+.form-select {
+    background-color: #6FB1FC;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+
+/* Botón principal */
+.btn-primary {
+    background-color: #6FB1FC;
+    width: 60%;
+    margin: 0 auto;
+    display:block;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #ff8c00;
+}
+
+/* Botón cancelar */
+.btn-secondary {
+    background-color: #0052D4; /* Azul fuerte */
+    width: 60%;
+    margin: 0 auto;
+    display:block;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.btn-danger:hover {
+    background-color: #003366;
+}
+
+/* Footer */
+footer {
+    background: transparent;
+    color: white;
+}
+
+/**/
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #bbdefb; /* Un azul clarito cuando pasas el mouse */
+}

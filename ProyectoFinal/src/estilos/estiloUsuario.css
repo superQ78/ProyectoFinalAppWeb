@@ -1,0 +1,125 @@
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #233c97;
+    margin-bottom: 30px;
+}
+
+
+/* Estilos para los contenedores */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* Encabezado */
+.card-header {
+    background:#233c97;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+/* Estilos para etiquetas de formulario */
+.form-label {
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #333;
+    width: 90%;
+    margin: 0 auto 10px auto;
+    display: block;
+}
+
+.form-control::placeholder {
+    color: #3A7BD5;
+}
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.6);
+    color: #333;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 210, 255, 0.5);
+}
+
+/* Estilo para botones primarios (guardar)*/
+.btn-primary {
+    background:#3A7BD5;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: #233c97;
+}
+
+/* Estilo para botones secundarios (cancelar) */
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+/* Estilo para las celdas de tablas */
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Estilo para botones pequeños dentro de las tablas */
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+}
+
+
+/* Encabezado de tablas */
+.table-dark th {
+    background: #233c97;
+    color: white;
+    font-weight: normal;
+    text-align: center;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+/* Botón de advertencia (editar) */
+.btn-warning {
+    background: #6FB1FC;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+}
+
+/* Botón de peligro (eliminar) */
+.btn-danger {
+    background: #3A7BD5;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.d-flex.gap-2 {
+    gap: 10px;
+}

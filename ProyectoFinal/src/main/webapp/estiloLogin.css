@@ -3,7 +3,157 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : 13 may 2025, 12:43:36
-    Author     : cesar
+    Created on : 11 may 2025, 14:45:56
+    Author     : equipo
 */
 
+
+/* estiloLogin.css */
+
+/* Fondo con imagen */
+body.bg-light {
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1s ease-out;
+    background: #031639;
+    background-image: url('Images/collage 1.jpg'); /* Reemplaza con la ruta correcta a tu imagen */
+    background-size: cover; /* Cubre todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen en el fondo */
+    display: flex; /* Usamos flexbox para centrar el contenido */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la pantalla */
+    margin: 0; /* Elimina márgenes por defecto del body */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contenedor principal (para la tarjeta de login) */
+.login-container {
+    width: 100%;
+    max-width: 450px; /* Ancho máximo deseado para el formulario */
+    padding: 20px; /* Espacio alrededor del formulario */
+    z-index: 1; /* Asegura que el formulario esté encima del fondo */
+}
+
+/* Estilo de la tarjeta de login */
+.card {
+    border-radius: 20px; /* Bordes un poco menos redondeados que el ejemplo */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Sombra similar al header y cards */
+    animation: slideIn 0.8s ease-out;
+    width: 100%;
+    background-color: #031639; /* Fondo similar a la navegación */
+    color: #e0e0e0; /* Texto claro */
+    min-height: 400px;
+}
+
+/* Animación para la tarjeta */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Encabezado de la tarjeta */
+.card-header {
+    background:linear-gradient(0deg, #031639, #B81333); /* Morado oscuro del header */
+    color: #ffffff;
+    border-radius: 10px 15px 0 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-header h4 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    padding: 30px;
+    background-color: transparent;
+    border-radius: 0 0 15px 15px;
+}
+
+/* Campos de entrada */
+.form-control {
+    height: 55px;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #555;
+    background-color: #031639; /* Fondo oscuro para los inputs */
+    color: #e0e0e0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 90%;
+}
+
+.form-control:focus {
+    border-color: #B81333; /* Cambia el color del borde al enfocar */
+    box-shadow: 0 0 8px rgb(170, 75, 94); /* Usa un color de sombra similar al del registro */
+    outline: none;
+}
+
+/* Botón de entrar */
+.btn-primary {
+    background-color: #B81333; /* Rosa oscuro del header */
+    border-color: #B81333;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #870d25;
+    border-color: #031639;
+    transform: scale(1.05);
+}
+
+/* Mensaje de error */
+.alert-danger {
+    font-size: 14px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 0, 0, 0.7); /* Fondo rojo con transparencia */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Enlace de registro */
+.text-center a {
+    text-decoration: none;
+    color: #B81333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color:  #870d25;
+}
+
+/* Ocultamos las imágenes flotantes anteriores */
+.floating-image {
+    display: none;
+}

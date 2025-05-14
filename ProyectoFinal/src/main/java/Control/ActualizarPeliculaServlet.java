@@ -21,18 +21,19 @@ import org.bson.types.ObjectId;
 
 @WebServlet("/ActualizarPeliculaServlet")
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024,      // 1 MB
-    maxFileSize = 1024 * 1024 * 5,       // 5 MB
-    maxRequestSize = 1024 * 1024 * 10    // 10 MB
+        fileSizeThreshold = 1024 * 1024, // 1 MB
+        maxFileSize = 1024 * 1024 * 5, // 5 MB
+        maxRequestSize = 1024 * 1024 * 10 // 10 MB
 )
 public class ActualizarPeliculaServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         String usuarioId = (String) session.getAttribute("usuarioId");
-        
+
         if (usuarioId == null) {
             response.sendRedirect("login.jsp");
             return;
@@ -52,7 +53,7 @@ public class ActualizarPeliculaServlet extends HttpServlet {
             // Procesar imagen
             String imagenPath = imagenActual;
             Part filePart = request.getPart("imagen");
-            
+
             if (filePart != null && filePart.getSize() > 0) {
                 // Eliminar imagen anterior si existe
                 if (imagenActual != null && !imagenActual.isEmpty()) {
@@ -61,7 +62,7 @@ public class ActualizarPeliculaServlet extends HttpServlet {
                         oldImage.delete();
                     }
                 }
-                
+
                 // Guardar nueva imagen
                 String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
                 String uploadPath = getServletContext().getRealPath("/uploads");
@@ -69,7 +70,7 @@ public class ActualizarPeliculaServlet extends HttpServlet {
                 if (!uploadDir.exists()) {
                     uploadDir.mkdirs();
                 }
-                
+
                 String filePath = uploadPath + File.separator + fileName;
                 filePart.write(filePath);
                 imagenPath = "uploads/" + fileName;
@@ -77,26 +78,26 @@ public class ActualizarPeliculaServlet extends HttpServlet {
 
             // Crear DTO y actualizar
             PeliculaDTO pelicula = new PeliculaDTO(
-                new ObjectId(peliculaId),
-                usuarioId,
-                titulo,
-                descripcion,
-                calificacion,
-                favorita,
-                imagenPath,
-                comentario,
-                genero
+                    new ObjectId(peliculaId),
+                    usuarioId,
+                    titulo,
+                    descripcion,
+                    calificacion,
+                    favorita,
+                    imagenPath,
+                    comentario,
+                    genero
             );
 
             boolean exito = PeliculaDAO.actualizarPelicula(pelicula);
-            
+
             if (exito) {
-        response.sendRedirect("VerPeliculasServlet"); 
+                response.sendRedirect("VerPeliculasServlet");
             } else {
                 request.setAttribute("error", "Error al actualizar la película");
                 request.getRequestDispatcher("editarPelicula.jsp").forward(request, response);
             }
-            
+
         } catch (Exception e) {
             request.setAttribute("error", "Error: " + e.getMessage());
             request.getRequestDispatcher("editarPelicula.jsp").forward(request, response);

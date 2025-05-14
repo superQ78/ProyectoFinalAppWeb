@@ -9,7 +9,7 @@
 <%
     PeliculaDTO pelicula = (PeliculaDTO) request.getAttribute("pelicula");
     if (pelicula == null) {
-        response.sendRedirect("verPeliculas.jsp");
+        response.sendRedirect("VerPeliculasServlet");
         return;
     }
 %>

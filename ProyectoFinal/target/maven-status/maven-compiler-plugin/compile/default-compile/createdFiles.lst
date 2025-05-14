@@ -1,4 +1,5 @@
 DTO\PeliculaDTO.class
+Control\ActualizarPeliculaServlet.class
 DTO\UsuarioDTO.class
 Negocio\UsuarioBO.class
 Control\BuscarPeliculasServlet.class
@@ -13,6 +14,7 @@ Control\UsuarioServlet.class
 Control\VerDetallesPeliculaServlet.class
 Control\VerPeliculasServlet.class
 Control\InicioPeliculaServlet.class
+Control\EditarPeliculaServlet.class
 Control\RegistrarPeliculaServlet.class
 com\mycompany\proyectofinal\JakartaRestConfiguration.class
 Control\LoginServlet.class

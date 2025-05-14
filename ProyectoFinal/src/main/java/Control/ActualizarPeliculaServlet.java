@@ -91,7 +91,7 @@ public class ActualizarPeliculaServlet extends HttpServlet {
             boolean exito = PeliculaDAO.actualizarPelicula(pelicula);
             
             if (exito) {
-                response.sendRedirect("VerPeliculas.jsp");
+        response.sendRedirect("VerPeliculasServlet"); 
             } else {
                 request.setAttribute("error", "Error al actualizar la película");
                 request.getRequestDispatcher("editarPelicula.jsp").forward(request, response);

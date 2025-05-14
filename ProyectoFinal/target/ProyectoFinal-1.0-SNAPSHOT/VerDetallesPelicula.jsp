@@ -44,7 +44,7 @@
             </section>
 
             <footer class="detalle-footer">
-                <button onclick="window.history.back()">Volver Atrás</button>
+                <button onclick="window.location.href='InicioPeliculaServlet'">Volver Atrás</button>
             </footer>
         </main>
     </body>

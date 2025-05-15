@@ -32,55 +32,45 @@
     </head>
     <body>
         <h1>Mis Películas</h1>
-        <button onclick="window.history.back()" class="btn-atras">Atrás</button>
+        <button onclick="window.location.href = 'InicioPeliculaServlet'" class="btn-atras">Atrás</button>
         <button onclick="window.location.href = 'FavoritosServlet'" class="btn-favoritos-link">
             <i class="fas fa-heart"></i> Ir a Favoritos
         </button>
+        
         <div class="peliculas-container">
             <% if (listaPeliculas.isEmpty()) { %>
-            <p>No tienes películas registradas aún.</p>
-            <% } else { %>
-            <% for (PeliculaDTO pelicula : listaPeliculas) { %>
-            <div class="pelicula">
-                <%
+                <p>No tienes películas registradas aún.</p>
+            <% } else { 
+                for (PeliculaDTO pelicula : listaPeliculas) { 
                     String imagenUrl = pelicula.getImagen();
                     if (imagenUrl == null || imagenUrl.isEmpty()) {
-                        imagenUrl = "images/default.jpg"; // Imagen por defecto si no hay portada
+                        imagenUrl = "images/default.jpg";
                     }
-                %>
-                <img src="<%= imagenUrl%>" alt="Portada de <%= pelicula.getTitulo()%>" class="portada-img">
-                <h2><%= pelicula.getTitulo()%></h2>
-                <p><%= pelicula.getDescripcion()%></p>
-                <p>🎭 Género: <%= pelicula.getGenero()%></p>
-                <p>⭐ Calificación: <%= pelicula.getCalificacion()%>/5</p>
+            %>
+                <div class="pelicula">
+                    <img src="<%= imagenUrl%>" alt="Portada de <%= pelicula.getTitulo()%>" class="portada-img">
+                    <h2><%= pelicula.getTitulo()%></h2>
+                    <p><%= pelicula.getDescripcion()%></p>
+                    <p>🎭 Género: <%= pelicula.getGenero()%></p>
+                    <p>⭐ Calificación: <%= pelicula.getCalificacion()%>/5</p>
 
-                <!-- 🔹 Estrella para marcar/desmarcar favoritos -->
-                <%
-                    boolean esFavorita = pelicula.isFavorita();
-                    String iconoFavorito = esFavorita ? "fas fa-star" : "far fa-star";
-                %>
-                <!-- 🔹 Botón de estrella para marcar/desmarcar favoritos -->
-                <button class="btn-favorito" onclick="toggleFavorito('<%= pelicula.getId()%>', this)">
-                    ⭐ <i class="<%= iconoFavorito%>"></i>
-                </button>
+                    <button class="btn-favorito" onclick="toggleFavorito('<%= pelicula.getId()%>', this)">
+                        ⭐ <i class="<%= pelicula.isFavorita() ? "fas" : "far" %> fa-star"></i>
+                    </button>
 
-                <div class="acciones-pelicula">
-                    <!-- Botón Editar -->
-                    <!-- Botón Editar -->
-                    <a href="EditarPeliculaServlet?peliculaId=<%= pelicula.getId()%>" class="btn-editar">
-                        ✏️ Editar
-                    </a>
-
-                    <!-- Botón Eliminar -->
-                    <form action="EliminarPeliculaServlet" method="post" class="form-accion" 
-                          onsubmit="return confirm('¿Seguro que deseas eliminar esta película?');">
-                        <input type="hidden" name="peliculaId" value="<%= pelicula.getId()%>">
-                        <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
-                    </form>
+                    <div class="acciones-pelicula">
+                        <a href="EditarPeliculaServlet?peliculaId=<%= pelicula.getId()%>" class="btn-editar">
+                            ✏️ Editar
+                        </a>
+                        <form action="EliminarPeliculaServlet" method="post" class="form-accion" 
+                              onsubmit="return confirm('¿Seguro que deseas eliminar esta película?');">
+                            <input type="hidden" name="peliculaId" value="<%= pelicula.getId()%>">
+                            <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
+                        </form>
+                    </div>
                 </div>
-
-                <% } %>
-                <% }%>
-            </div>
+            <% } 
+            } %>
+        </div>
     </body>
 </html>

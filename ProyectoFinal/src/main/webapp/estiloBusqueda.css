@@ -1,12 +1,27 @@
+/* ESTILOS BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #031639;
     color: #e0e0e0;
-    margin: 0;
+    min-height: 100vh;
     padding: 20px;
     line-height: 1.6;
 }
 
+.contenedor-principal {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* TÍTULO PRINCIPAL */
 h1 {
     color: #ffffff;
     text-align: center;
@@ -16,17 +31,49 @@ h1 {
 }
 
 @keyframes pulsate {
-    0% {
-        text-shadow: 0 0 10px #031639;
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(3, 22, 59, 0.7);
     }
     50% {
-        text-shadow: 0 0 20px #B81333;
-    }
-    100% {
-        text-shadow: 0 0 10px #031639;
+        text-shadow: 0 0 20px rgba(184, 19, 51, 0.9);
     }
 }
 
+/* BOTÓN DE INICIO */
+.contenedor-boton {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0 40px;
+}
+
+.btn-inicio {
+    background-color: #B81333;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-inicio:hover {
+    background-color: #870d25;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.btn-inicio i {
+    font-size: 1.2em;
+}
+
+/* RESULTADOS DE BÚSQUEDA */
 .resultados-container {
     display: flex;
     flex-wrap: wrap;
@@ -39,21 +86,28 @@ h1 {
     background-color: #031d4b;
     border-radius: 10px;
     overflow: hidden;
-    width: 300px; /* Ancho de la tarjeta */
+    width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-    cursor: pointer; /* Indica que es ক্লিকable */
+    transition: all 0.3s ease;
+    cursor: pointer;
     margin-bottom: 20px;
 }
 
 .pelicula-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 .pelicula-card img {
     width: 100%;
-    height: auto;
+    height: 450px;
     display: block;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.pelicula-card:hover img {
+    opacity: 0.9;
 }
 
 .pelicula-card .info-pelicula {
@@ -66,28 +120,40 @@ h1 {
     margin-bottom: 10px;
     font-size: 1.5em;
     color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .pelicula-card .info-pelicula p {
-    font-size: 1em;
+    font-size: 0.95em;
     color: #bdbdbd;
     margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    min-height: 60px;
 }
 
-.btn {
-    display: inline-block;
-    background-color: #B81333; /* Color principal del botón */
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-top: 30px;
-    transition: background-color 0.3s ease;
-    font-size: 1.1em;
+.sin-imagen {
+    background-color: #031639;
+    color: #777;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    text-align: center;
+    flex-direction: column;
 }
 
-.btn:hover {
-    background-color: #870d25; /* Oscurecer al pasar el ratón */
+.sin-imagen i {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #B81333;
 }
 
 .no-resultados {
@@ -95,18 +161,27 @@ h1 {
     text-align: center;
     margin-top: 40px;
     font-size: 1.2em;
+    padding: 20px;
+    background-color: rgba(3, 22, 59, 0.5);
+    border-radius: 8px;
+    width: 100%;
 }
 
-.sin-imagen {
-    background-color: #031639; /* Fondo oscuro para el placeholder */
-    color: #777; /* Texto gris */
-    width: 100%;
-    height: 150px; /* Altura similar a una portada */
-    border-radius: 6px 6px 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9em;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.no-resultados i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    display: block;
+    color: #B81333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .pelicula-card {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .contenedor-boton {
+        margin: 15px 0 30px;
+    }
 }

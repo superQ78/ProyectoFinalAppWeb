@@ -1,25 +1,12 @@
 <%-- 
     Document   : ResultadosBusqueda
     Created on : 13 may 2025, 13:16:07
-    Author     : cesar
+    Author     : equipo
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
-
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="DTO.PeliculaDTO"%>
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="DTO.PeliculaDTO" %>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
 <html>
@@ -27,11 +14,19 @@
         <meta charset="UTF-8">
         <title>Resultados de Búsqueda</title>
         <link rel="stylesheet" href="estiloBusqueda.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
     <body>
-
+        
         <h1>Resultados de la búsqueda: "<%= request.getAttribute("busqueda")%>"</h1>
-
+   <div class="contenedor-principal">
+            <!-- Botón de Inicio -->
+            <div class="contenedor-boton">
+                <button>
+                <a href="InicioPeliculaServlet" class="btn-inicio">
+                    <i class="fas fa-home"></i> Ir a Inicio
+                </a></button>
+            </div>
         <div class="resultados-container">
             <%
                 List<PeliculaDTO> peliculas = (List<PeliculaDTO>) request.getAttribute("peliculas");
@@ -51,14 +46,13 @@
                 </div>
             </div>
             <%
-                }
-            } else {
+                    }
+                } else {
             %>
             <p class="no-resultados">No se encontraron películas con ese título.</p>
             <%
                 }
             %>
         </div>
-
     </body>
 </html>

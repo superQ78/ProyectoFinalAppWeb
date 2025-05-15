@@ -60,57 +60,101 @@ h1 {
     margin-left: 8px; /* Espacio para el icono de corazón */
 }
 
-/* Contenedor general de películas */
+/* Contenedor general  */
 .peliculas-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajustado el ancho mínimo */
-    gap: 25px; /* Aumentado el espacio entre películas */
-    padding: 20px 40px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
     width: 95%;
     max-width: 1200px;
-    box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+    padding: 10px;
 }
 
-/* Cada película como tarjeta */
+/* Estilo de card para cada película - Modificado */
 .pelicula {
-    background-color: #031d4b; /* Fondo de tarjeta consistente */
-    border-radius: 10px;
+    background-color: #031d4b;
+    border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra consistente */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    min-height: 420px; /* Ajustado la altura mínima */
-    box-sizing: border-box; /* Para que el padding no afecte la altura total */
+    min-height: 420px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pelicula:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 188, 212, 0.2); /* Sombra al pasar el ratón */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 188, 212, 0.3);
+}
+
+/* Efecto de borde al hover */
+.pelicula::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #B81333, #00BCD4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pelicula:hover::after {
+    opacity: 1;
 }
 
 .pelicula h2 {
     font-size: 1.5em;
     margin-bottom: 12px;
-    color: #ffffff; /* Color de título de película */
+    color: #ffffff;
     overflow-wrap: break-word;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.pelicula h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #B81333, transparent);
 }
 
 .pelicula p {
     font-size: 1em;
     margin-bottom: 10px;
-    color: #bdbdbd; /* Color de texto de descripción */
+    color: #bdbdbd;
     overflow-wrap: break-word;
-    flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
+    flex-grow: 1;
 }
 
 /* Mensaje cuando no hay películas */
-.peliculas-container p {
+.peliculas-container > p {
     text-align: center;
     grid-column: 1 / -1;
     font-size: 1.1em;
     color: #999;
+    padding: 40px 0;
+}
+
+.portada-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.pelicula:hover .portada-img {
+    transform: scale(1.03);
 }
 
 .portada-img {

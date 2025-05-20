@@ -60,119 +60,117 @@
     <body class="bg-light">
         <div class="container py-4">
             <header class="header-bar">
-
                 <a href="login.jsp" class="btn btn-outline-light">Ir al login</a>
+            </header>
         </div>
-    </header>
+        <h1 class="mb-4">Gestión de Usuarios</h1>
 
-    <h1 class="mb-4">Gestión de Usuarios</h1>
+        <% if ("admin".equals(rolUsuario)) { %>
 
-    <% if ("admin".equals(rolUsuario)) { %>
+        <!-- Formulario para agregar o editar usuario -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <% if (usuarioEditar != null) { %> Editar Usuario <% } else { %> Agregar nuevo usuario <% }%>
+            </div>
+            <div class="card-body">
+                <form action="usuarios.jsp" method="post" class="g-3" style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
+                    <input type="hidden" name="accion" value="<%= (usuarioEditar != null) ? "editar" : "agregar"%>">
+                    <% if (usuarioEditar != null) {%>
+                    <input type="hidden" name="id" value="<%= usuarioEditar.getId()%>">
+                    <% }%>
 
-    <!-- Formulario para agregar o editar usuario -->
-    <div class="card mb-4">
-        <div class="card-header">
-            <% if (usuarioEditar != null) { %> Editar Usuario <% } else { %> Agregar nuevo usuario <% }%>
-        </div>
-        <div class="card-body">
-            <form action="usuarios.jsp" method="post" class="row g-3">
-                <input type="hidden" name="accion" value="<%= (usuarioEditar != null) ? "editar" : "agregar"%>">
-                <% if (usuarioEditar != null) {%>
-                <input type="hidden" name="id" value="<%= usuarioEditar.getId()%>">
-                <% }%>
+                    <div>
+                        <label class="form-label">Nombre de Usuario</label>
+                        <input type="text" name="nomUsuario" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getNomUsuario() : ""%>" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Nombre</label>
+                        <input type="text" name="nombre" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getNombre() : ""%>" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Correo</label>
+                        <input type="email" name="correo" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getCorreo() : ""%>" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" name="contrasena" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getContrasena() : ""%>" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Rol</label>
+                        <select name="rol" class="form-control" required>
+                            <option value="usuario" <%= (usuarioEditar != null && "Usuario".equals(usuarioEditar.getRol())) ? "selected" : ""%>>Usuario</option>
+                            <option value="admin" <%= (usuarioEditar != null && "Administrador".equals(usuarioEditar.getRol())) ? "selected" : ""%>>Administrador</option>
+                        </select>
+                    </div>
 
-                <div class="col-md-2">
-                    <label class="form-label">Nombre de Usuario</label>
-                    <input type="text" name="nomUsuario" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getNomUsuario() : ""%>" required>
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Nombre</label>
-                    <input type="text" name="nombre" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getNombre() : ""%>" required>
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label">Correo</label>
-                    <input type="email" name="correo" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getCorreo() : ""%>" required>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label">Contraseña</label>
-                    <input type="password" name="contrasena" class="form-control" value="<%= (usuarioEditar != null) ? usuarioEditar.getContrasena() : ""%>" required>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label">Rol</label>
-                    <select name="rol" class="form-control" required>
-                        <option value="usuario" <%= (usuarioEditar != null && "Usuario".equals(usuarioEditar.getRol())) ? "selected" : ""%>>Usuario</option>
-                        <option value="admin" <%= (usuarioEditar != null && "Administrador".equals(usuarioEditar.getRol())) ? "selected" : ""%>>Administrador</option>
-                    </select>
-                </div>
-
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">
-                        <%= (usuarioEditar != null) ? "Actualizar usuario" : "Guardar usuario"%>
-                    </button>
-                    <% if (usuarioEditar != null) { %>
-                    <a href="usuarios.jsp" class="btn btn-secondary">Cancelar</a>
-                    <% } %>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Tabla de usuarios -->
-    <div class="card">
-        <div class="card-header">Lista de usuarios</div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered m-0">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Nombre de Usuario</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Rol</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%
-                            List<UsuarioDTO> lista = UsuariosDAO.obtener_lista(rolUsuario);
-                            for (UsuarioDTO usuario : lista) {
-                        %>
-                        <tr>
-                            <td><%= usuario.getNomUsuario()%></td>
-                            <td><%= usuario.getNombre()%></td>
-                            <td><%= usuario.getCorreo()%></td>
-                            <td><%= usuario.getRol()%></td>
-                            <td>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <!-- Botón Editar -->
-                                    <form action="usuarios.jsp" method="get" style="display:inline;">
-                                        <input type="hidden" name="idEditar" value="<%= usuario.getId()%>">
-                                        <button type="submit" class="btn btn-warning btn-sm px-3">Editar</button>
-                                    </form>
-
-                                    <!-- Botón Eliminar -->
-                                    <form action="usuarios.jsp" method="post" style="display:inline;" onsubmit="return confirmarEliminacion();">
-                                        <input type="hidden" name="accion" value="eliminar">
-                                        <input type="hidden" name="id" value="<%= usuario.getId()%>">
-                                        <button type="submit" class="btn btn-danger btn-sm px-3">Eliminar</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                    <div style="flex-basis: 100%; margin-top: 20px;">
+                        <button type="submit" class="btn btn-primary">
+                            <%= (usuarioEditar != null) ? "Actualizar usuario" : "Guardar usuario"%>
+                        </button>
+                        <% if (usuarioEditar != null) { %>
+                        <a href="usuarios.jsp" class="btn btn-secondary">Cancelar</a>
                         <% } %>
-                    </tbody>
-                </table>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-    <% }%>
-</div>
 
-<!-- Confirmación para eliminar -->
-<script>
-    function confirmarEliminacion() {
-        return confirm('¿Está seguro de que desea eliminar este usuario?');
-    }
-</script>
+        <!-- Tabla de usuarios -->
+        <div class="card">
+            <div class="card-header">Lista de usuarios</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered m-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre de Usuario</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                List<UsuarioDTO> lista = UsuariosDAO.obtener_lista(rolUsuario);
+                                for (UsuarioDTO usuario : lista) {
+                            %>
+                            <tr>
+                                <td><%= usuario.getNomUsuario()%></td>
+                                <td><%= usuario.getNombre()%></td>
+                                <td><%= usuario.getCorreo()%></td>
+                                <td><%= usuario.getRol()%></td>
+                                <td>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <!-- Botón Editar -->
+                                        <form action="usuarios.jsp" method="get" style="display:inline;">
+                                            <input type="hidden" name="idEditar" value="<%= usuario.getId()%>">
+                                            <button type="submit" class="btn btn-warning btn-sm px-3">Editar</button>
+                                        </form>
+
+                                        <!-- Botón Eliminar -->
+                                        <form action="usuarios.jsp" method="post" style="display:inline;" onsubmit="return confirmarEliminacion();">
+                                            <input type="hidden" name="accion" value="eliminar">
+                                            <input type="hidden" name="id" value="<%= usuario.getId()%>">
+                                            <button type="submit" class="btn btn-danger btn-sm px-3">Eliminar</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <% }%>
+    </div>
+
+    <!-- Confirmación para eliminar -->
+    <script>
+        function confirmarEliminacion() {
+            return confirm('¿Está seguro de que desea eliminar este usuario?');
+        }
+    </script>
 </body>
 </html>
